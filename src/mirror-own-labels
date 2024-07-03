@@ -163,6 +163,24 @@ for repo in result["organization"]["repositories"]["nodes"]:
     labels_to_add = current_labels_names - existing_labels_names
     labels_to_delete = existing_labels_names - current_labels_names
     common_labels = existing_labels_names & current_labels_names
+    if len(labels_to_add) == 1 and len(labels_to_delete) == 1:
+        old_name = labels_to_delete.pop()
+        new_name = labels_to_add.pop()
+        print(f"{owner}/{repo['name']}: renaming label {old_name} to {new_name}")
+        try:
+            githubgql.graphql(UPDATE_LABEL, token=token, accept="application/vnd.github.bane-preview+json", input={
+                    "id": existing_labels[old_name]["id"],
+                    "name": new_name,
+                    'description': current_labels[new_name]['description'],
+                    'color': current_labels[new_name]['color'],
+                }
+            )
+        except githubgql.GraphQLError as e:
+            if e.errors[0]['type'] == "FORBIDDEN":
+                print(f"Cannot edit labels on {repo['name']}. Please ensure bot has permission to create and edit labels.")
+                continue
+            else:
+                raise
 
     # Construct the set of common labels that need editing.
     labels_to_edit = set()
