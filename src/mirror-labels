@@ -95,6 +95,7 @@ except githubgql.TokenError as e:
 print()
 print(" --- STARTING LABEL SYNC --- ")
 print()
+print(result)
 
 # Iterate through all repos controlled by the owner.
 for repo in result["organization"]["repositories"]["nodes"]:
