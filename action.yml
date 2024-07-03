@@ -14,7 +14,3 @@ runs:
       shell: bash
     - run: $GITHUB_ACTION_PATH/src/mirror-labels "$GITHUB_WORKSPACE/manage-your-labels.yml"
       shell: bash
-    - run: bash -c "env | sort"
-      shell: bash
-    - run: cat $GITHUB_EVENT_PATH
-      shell: bash
