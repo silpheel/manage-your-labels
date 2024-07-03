@@ -98,7 +98,7 @@ print(" --- STARTING LABEL SYNC --- ")
 print()
 
 from textwrap import wrap
-for chunk in wrap(str(result)):
+for chunk in wrap(str(result), 1000):
     print(chunk)
 
 # Iterate through all repos controlled by the owner.
