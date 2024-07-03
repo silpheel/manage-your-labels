@@ -63,7 +63,7 @@ mutation($input: DeleteLabelInput!) {
 }
 '''
 
-if os.environ["GITHUB_EVENT_NAME"] not in {"schedule", "workflow_dispatch", "push"}:
+if os.environ["GITHUB_EVENT_NAME"] not in {"schedule", "workflow_dispatch", "push", 'label'}:
     sys.exit(0)
 
 owner, repo = os.environ["GITHUB_REPOSITORY"].split("/")
