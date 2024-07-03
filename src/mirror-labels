@@ -67,6 +67,7 @@ if os.environ["GITHUB_EVENT_NAME"] not in {"schedule", "workflow_dispatch"}:
     sys.exit(0)
 
 owner, repo = os.environ["GITHUB_REPOSITORY"].split("/")
+print(owner, repo)
 
 if repo != ".github":
     print("""
