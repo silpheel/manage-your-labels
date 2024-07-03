@@ -103,7 +103,7 @@ try:
         for r in result['organization']['repositories']['nodes']
         if r['name'].lower() == '.github'
     )
-    current_labels = current_repo['labels']['nodes']
+    current_labels = {l['name']: l for l in current_repo['labels']['nodes']}
 except:
     print("Error reading this repo's labels")
     sys.exit(0)
