@@ -97,10 +97,6 @@ print()
 print(" --- STARTING LABEL SYNC --- ")
 print()
 
-from textwrap import wrap
-for chunk in wrap(str(result), 1000):
-    print(chunk)
-
 # Iterate through all repos controlled by the owner.
 for repo in result["organization"]["repositories"]["nodes"]:
     # Construct the set of labels that should be on this repo.
