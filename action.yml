@@ -12,5 +12,5 @@ runs:
       shell: bash
     - run: python3 -m pip install -qqq githubgql pyyaml
       shell: bash
-    - run: $GITHUB_ACTION_PATH/src/mirror-labels "$GITHUB_WORKSPACE/manage-your-labels.yml"
+    - run: $GITHUB_ACTION_PATH/src/mirror-own-labels
       shell: bash

@@ -79,12 +79,12 @@ repo. If already enabled there, no more action is necessary.
 # Get Github token.
 token = os.environ.get('BOT_TOKEN', None)
 
-# Open label data from the .github repository.
-with open(sys.argv[1]) as f:
-    input = yaml.safe_load(f)
+# # Open label data from the .github repository.
+# with open(sys.argv[1]) as f:
+#     input = yaml.safe_load(f)
 
-LABEL_GROUPS = input["LABEL_GROUPS"]
-REPOS = input["REPOS"]
+# LABEL_GROUPS = input["LABEL_GROUPS"]
+# REPOS = input["REPOS"]
 
 # Fetch repository data.
 try:
